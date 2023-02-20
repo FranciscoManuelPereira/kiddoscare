@@ -84,16 +84,16 @@ email {
     unique: true,
 },
 phoneNumber {
-    type: String,
+    type: Number,
     required: true,
-    trim: t rue,
+    trim: true,
     unique: true,
 }
  password {
     type: String,
     require: true,
 },
-imageUrl {
+image {
     type: String,
     required: true,
 },
@@ -119,7 +119,7 @@ disponibility: [{
 linkedin {
     type: String,
 },
-languages {
+language {
     type: String,
 },
 area {
