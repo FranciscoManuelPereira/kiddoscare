@@ -9,7 +9,7 @@ const reviewsSchema = new Schema (
             type: String,
         },
 
-        rete: {
+        rate: {
             type: Number,
         }
     },
