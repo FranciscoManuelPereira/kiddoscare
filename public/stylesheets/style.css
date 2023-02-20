@@ -10,3 +10,15 @@ a {
 h1 {
   color: 15px;
 }
+
+nav{
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo {
+
+    width: 150px;
+    height: 100px;
+}
+
