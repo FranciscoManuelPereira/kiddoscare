@@ -1,1 +1,25 @@
-<h1>jsjs</h1>
+<h1>client edit</h1>
+
+<form action="/profiles/client-edit/{{_id}}" method="post">
+<label for="firstName">First name: </label>
+<input type="text" name="firstName" value="{{firstName}}">
+
+<label for="lastName">Last name: </label>
+<input type="text" name="lastName" value="{{lastName}}">
+
+<label for="email">Email: </label>
+<input type="text" name="email" value="{{email}}">
+
+<label for="password">Password: </label>
+<input type="text" name="password" value="{{password}}">
+
+<label for="phoneNumber">Phone number: </label>
+<input type="text" name="phoneNumber">
+
+<label for="image">Image: <input type="file" name="image"> </label>
+
+<label for="area">Area: </label>
+<input type="text" name="area">
+
+<button type="submit">Submit</button>
+</form>

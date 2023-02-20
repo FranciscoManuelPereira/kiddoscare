@@ -6,19 +6,16 @@ const userSchema = new Schema(
     firstName: {
       type: String,
       required: true,
-      trim: true,
     },
     lastName: {
       type: String,
       required: true,
-      trim: true,
     },
 
     email: {
       type: String,
       required: true,
       unique: true,
-      trim: true,
       lowercase: true,
     },
     password: {
@@ -28,61 +25,66 @@ const userSchema = new Schema(
 
     phoneNumber: {
       type: Number,
-      required: true,
-      trim: true,
-      unique: true,
-
+      default: 0,
     },
 
     image: {
       type: String,
-      required: true,
+      default: "",
     },
 
-    babysitter: Boolean,
-    
-    age:{
+    babysitter: {
+      type: Boolean,
+      default: false,
+    },
+
+    age: {
       type: Number,
+      default: 0,
     },
 
     experience: {
       type: String,
+      default: "",
     },
 
     criminalRecord: {
       type: String,
+      default: "",
     },
 
-    disponibility: [
+    /*     disponibility: [
       {
-        day: String,
+        day: {
+          type: String,
+          default: "",
+        },
         slot: {
-          type: [String],
-          enum: ["morning", "afternoon", "night"]
-        }
-    }
-  ],
+          enum: ["morning", "afternoon", "night"],
+          default: "morning",
+        },
+      },
+    ], */
 
-  linkedin: {
-    type: String,
+    linkedin: {
+      type: String,
+      default: "",
+    },
 
-  },
+    language: {
+      type: String,
+      default: "",
+    },
 
-  language: {
-    type: String,
-  },
+    area: {
+      type: String,
+      default: "",
+    },
 
-  area: {
-    type: String,
-  },
+    favorites: [{ type: Schema.Types.ObjectId, ref: "User" }],
 
-  favorites: {
-    type: Schema.Types.ObjectId,
-  },
-
-  reviewsWritten: [{ type: Schema.Types.ObjectId, ref: "Reviews"}],
-  reviewsReceived: [{ type: Schema.Types.ObjectId, ref: "Reviews"}],
-
+    reviewsWritten: [{ type: Schema.Types.ObjectId, ref: "Reviews" }],
+    reviewsReceived: [{ type: Schema.Types.ObjectId, ref: "Reviews" }],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
