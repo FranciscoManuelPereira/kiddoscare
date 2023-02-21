@@ -1,25 +1,38 @@
-<h1>client edit</h1>
+<div>
 
-<form action="/profiles/client-edit/{{_id}}" method="post">
-<label for="firstName">First name: </label>
-<input type="text" name="firstName" value="{{firstName}}">
+<form class="form-flex" action="/profiles/client-edit" method="post">
+    <h1 class="title">Client's form</h1>
+    
+    <label for="firstName">First name
+        <input class="input" type="text" name="firstName" value="{{firstName}}">
+    </label>
+    
 
-<label for="lastName">Last name: </label>
-<input type="text" name="lastName" value="{{lastName}}">
+    <label for="lastName">Last name
+        <input class="input" type="text" name="lastName" value="{{lastName}}">
+    </label>
+    
+    <label for="email">Email
+        <input class="input" type="text" name="email" value="{{email}}">
+    </label>
+    
 
-<label for="email">Email: </label>
-<input type="text" name="email" value="{{email}}">
+    <label for="password">Password
+        <input class="input" type="text" name="password" value="{{password}}">
+    </label>
+    
 
-<label for="password">Password: </label>
-<input type="text" name="password" value="{{password}}">
+    <label for="phoneNumber">Phone number
+        <input class="input" type="text" name="phoneNumber">
+    </label>
+    
+    <label for="image">Image: <input class="input" type="file" name="image"> </label>
 
-<label for="phoneNumber">Phone number: </label>
-<input type="text" name="phoneNumber">
-
-<label for="image">Image: <input type="file" name="image"> </label>
-
-<label for="area">Area: </label>
-<input type="text" name="area">
-
-<button type="submit">Submit</button>
+    <label for="area">Area
+        <input class="input"type="text" name="area">
+    </label>
+    
+    <button type="submit" class="button btn btn-secondary btn-lg">SUBMIT</button>
 </form>
+
+</div>

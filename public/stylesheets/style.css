@@ -1,24 +1,84 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
-a {
-  color: #00b7ff;
-}
 
-h1 {
-  color: 15px;
-}
+/* NAV BAR */
 
-nav{
+.nav-bar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background-color: #D99066;
+  height: 80px;
 }
 
-#logo {
-
-    width: 150px;
-    height: 100px;
+.nav-bar-id {
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
 }
 
+.nav-bar-id {
+  color: white;
+}
+
+.nav {
+  margin-right: 40px;
+}
+
+.nav-link {
+  color: white;
+}
+
+.logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+}
+
+
+/* BODY HOME */
+.container-image {
+ position: relative;
+}
+
+.background-image {
+  width: 1920px;
+  height: 500px;
+}
+
+.text-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* AUTH */
+
+.form-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title {
+  margin: 100px 0 30px 0;
+}
+
+.input {
+  margin: 10px;
+}
+
+.button {
+  margin: 30px 0 100px 0;
+}
+
+/* BABYSITTER EDIT */
+
+
+/* FOOTER */
+
+.footer {
+  height: 40px;
+  background-color: #F2A35E;
+}

@@ -1,29 +1,24 @@
 <div id="form">
-  <h2>Sign Up</h2>
-  <form action="/auth/signup" method="POST">
-
-    <label>
-      firstName
-      <input type="text" name="firstName" placeholder="Your firstName" />
+  
+  <form class="form-flex" action="/auth/signup" method="POST">
+    <h2 class="title">Sign Up</h2>
+    <label>First name
+      <input class="input" type="text" name="firstName" placeholder="Your firstName" />
     </label>
 
-    <label>
-      lastName
-      <input type="text" name="lastName" placeholder="Your lastName" />
+    <label>Last name
+      <input class="input" type="text" name="lastName" placeholder="Your lastName" />
     </label>
 
-    <label>
-      Email
-      <input type="email" name="email" placeholder="Your email" />
+    <label>Email
+      <input class="input" type="email" name="email" placeholder="Your email" />
     </label>
 
-    <label>
-      Password
-      <input type="password" name="password" placeholder="Your password" />
+    <label>Password
+      <input class="input" type="password" name="password" placeholder="Your password" />
     </label>
 
-    <button type="submit">Sign Up</button>
-
+    <button type="submit" class="button btn btn-secondary btn-lg">SIGN UP</button>
   </form>
 
   {{#if errorMessage}}

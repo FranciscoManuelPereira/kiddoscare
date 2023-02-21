@@ -29,12 +29,12 @@ router.post("/options", isLoggedIn, async (req, res, next) => {
 // GET /
 
 // GET /profiles/babysitter
-router.get("/babysitter-edit/:id", isLoggedOut, (req, res) => {
+router.get("/babysitter-edit/", isLoggedOut, (req, res) => {
   res.render("profiles/babysitter-edit");
 });
 
 // POST /profiles/babysitter
-router.post("/babysitter-edit/:id", isLoggedOut, (req, res) => {
+router.post("/babysitter-edit", isLoggedOut, (req, res) => {
   const {
     firstName,
     lastName,
@@ -55,12 +55,12 @@ router.post("/babysitter-edit/:id", isLoggedOut, (req, res) => {
 });
 
 // GET /profiles/client
-router.get("/client-edit/:id", isLoggedOut, (req, res) => {
+router.get("/client-edit/", isLoggedOut, (req, res) => {
   res.render("profiles/client-edit");
 });
 
 // POST /profiles/client
-router.post("/client-edit/:id", isLoggedOut, (req, res) => {
+router.post("/client-edit/", isLoggedOut, (req, res) => {
   const { firstName, lastName, email, password, phoneNumber, image } = req.body;
 
   res.redirect("/client");

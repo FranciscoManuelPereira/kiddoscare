@@ -1,36 +1,50 @@
-<h1>babysitter edit</h1>
+<div>
+<form class="form-flex" action="/profiles/babysitter-edit" method="post">
+    <h1 class="title">Babysitter's form</h1>
+    
+    <label for="firstName">First name 
+        <input class="input" type="text" name="firstName" value="{{firstName}}"> 
+    </label>
 
-<form action="/profiles/babysitter-edit/{{_id}}" method="post">
-<label for="firstName">First name: </label>
-<input type="text" name="firstName" value="{{firstName}}">
+    <label for="lastName">Last name
+        <input class="input" type="text" name="lastName" value="{{lastName}}"> 
+    </label>
+    
+    <label for="email">Email
+        <input class="input" type="text" name="email" value="{{email}}">
+    </label>
+    
 
-<label for="lastName">Last name: </label>
-<input type="text" name="lastName" value="{{lastName}}">
+    <label for="password">Password
+        <input class="input" type="text" name="password" value="{{password}}">
+    </label>
+    
 
-<label for="email">Email: </label>
-<input type="text" name="email" value="{{email}}">
+    <label for="phoneNumber">Phone number
+        <input class="input" type="text" name="phoneNumber" value="{{phoneNumber}}">
+    </label>
+    
+    <label for="image">Image: <input class="input" type="file" name="image"> </label>
 
-<label for="password">Password: </label>
-<input type="text" name="password" value="{{password}}">
+    <label for="age">Age
+        <input class="input" type="text" name="age" value="{{age}}">
+    </label>
+    
 
-<label for="phoneNumber">Phone number: </label>
-<input type="text" name="phoneNumber" value="{{phoneNumber}}">
+    <label for="experience">Experience
+        <textarea class="input" name="experience" id="experience" cols="30" rows="10"></textarea>     
+    </label>
 
-<label for="image">Image: <input type="file" name="image"> </label>
+    <label for="criminalRecord">Criminal record: <input class="input" type="file" name="criminalRecord"> </label>
 
-<label for="age">Age: </label>
-<input type="text" name="age" value="{{age}}">
+    <label for="language">Spoken languages
+        <input class="input" type="text" name="language" value="{{language}}">
+    </label>
 
-<label for="experience">Experience: </label>
-<textarea name="experience" id="experience" cols="30" rows="10"></textarea>
-
-<label for="criminalRecord">Criminal record: <input type="file" name="criminalRecord"> </label>
-
-<label for="language">Spoken languages: </label>
-<input type="text" name="language" value="{{language}}">
-
-<label for="area">Area: </label>
-<input type="text" name="area" value="{{area}}">
-
-<button type="submit">Submit</button>
+    <label for="area">Area 
+        <input class="input" type="text" name="area" value="{{area}}"> 
+    </label>
+    
+    <button type="submit" class="button btn btn-secondary btn-lg">SUBMIT</button>
 </form>
+</div>
