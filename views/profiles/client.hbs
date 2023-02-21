@@ -1,25 +1,11 @@
-<h1>Client</h1>
+<h1>Profile</h1>
 
-<form action="/client" method="post">
-<label for="firstName">First name: </label>
-<input type="text" name="firstName">
+<p>First name: {{user.firstName}}</p>
+<p>Last name: {{user.lastName}}</p>
+<p>Email: {{user.email}}</p>
+<p>Phone number: {{user.phoneNumber}}</p>
+<p><label for="image">Image: <input type="file" name="image"> </label></p>
+<p>Area: {{user.area}}</p>
 
-<label for="lastName">Last name: </label>
-<input type="text" name="lastName">
 
-<label for="email">Email: </label>
-<input type="text" name="email">
-
-<label for="password">Password: </label>
-<input type="text" name="password">
-
-<label for="phoneNumber">Phone number: </label>
-<input type="text" name="phoneNumber">
-
-<label for="image">Image: <input type="file" name="image"> </label>
-
-<label for="area">Area: </label>
-<input type="text" name="area">
-
-<button type="submit">Submit</button>
-</form>
+<a href="/client-edit/{{user._id}}">Edit profile</a>

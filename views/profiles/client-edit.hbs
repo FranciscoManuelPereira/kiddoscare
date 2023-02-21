@@ -1,0 +1,31 @@
+<div>
+<form class="form-flex" action="/profiles/client-edit/{{client._id}}" method="post">
+    <h1 class="title">Edit profile</h1>
+    
+    <label for="firstName">First name 
+        <input class="input" type="text" name="firstName" value="{{client.firstName}}"> 
+    </label>
+
+    <label for="lastName">Last name
+        <input class="input" type="text" name="lastName" value="{{client.lastName}}"> 
+    </label>
+    
+    <label for="email">Email
+        <input class="input" type="email" name="email" value="{{client.email}}">
+    </label>
+    
+    <label for="password">Password
+        <input class="input" type="password" name="password" >
+    </label>
+
+    <label for="phoneNumber">Phone number
+        <input class="input" type="text" name="phoneNumber" value="{{client.phoneNumber}}">
+    </label>
+
+    <label for="area">Area 
+        <input class="input" type="text" name="area" value="{{client.area}}"> 
+    </label>
+    
+    <button type="submit" class="button btn btn-secondary btn-lg">SUBMIT</button>
+</form>
+</div>

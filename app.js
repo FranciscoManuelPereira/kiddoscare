@@ -36,4 +36,17 @@ app.use("/", userRoutes);
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
+/* let login = document.querySelector(".signup-btn");
+let logout = document.querySelector(".logout-btn");
+
+login.addEventListener('click', function(e) {
+  this.classList.add('is-hidden')
+  logout.classList.remove('is-hidden');
+})
+
+logout.addEventListener('click', function(e) {
+  this.classList.add('is-hidden');
+  login.classList.remove('is-hidden');
+}) */
+
 module.exports = app;

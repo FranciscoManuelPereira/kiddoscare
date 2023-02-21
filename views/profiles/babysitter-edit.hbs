@@ -1,0 +1,47 @@
+<div>
+<form class="form-flex" action="/profiles/babysitter-edit/{{babysitter._id}}" method="post">
+    <h1 class="title">Babysitter's form</h1>
+    
+    <label for="firstName">First name 
+        <input class="input" type="text" name="firstName" value="{{babysitter.firstName}}"> 
+    </label>
+
+    <label for="lastName">Last name
+        <input class="input" type="text" name="lastName" value="{{babysitter.lastName}}"> 
+    </label>
+    
+    <label for="email">Email
+        <input class="input" type="email" name="email" value="{{babysitter.email}}">
+    </label>
+    
+    <label for="password">Password
+        <input class="input" type="text" name="password" value="{{babysitter.password}}">
+    </label>
+
+    <label for="phoneNumber">Phone number
+        <input class="input" type="text" name="phoneNumber" value="{{babysitter.phoneNumber}}">
+    </label>
+    
+    <label for="image">Image: <input class="input" type="file" name="image"> </label>
+
+    <label for="age">Age
+        <input class="input" type="text" name="age" value="{{babysitter.age}}">
+    </label>
+    
+    <label for="experience">Experience
+        <textarea class="input" value="{{babysitter.experience}}" name="experience" id="experience" cols="30" rows="10"></textarea>     
+    </label>
+
+    <label for="criminalRecord">Criminal record: <input class="input" type="file" name="criminalRecord"> </label>
+
+    <label for="language">Spoken languages
+        <input class="input" type="text" name="language" value="{{babysitter.language}}">
+    </label>
+
+    <label for="area">Area 
+        <input class="input" type="text" name="area" value="{{babysitter.area}}"> 
+    </label>
+    
+    <button type="submit" class="button btn btn-secondary btn-lg">SUBMIT</button>
+</form>
+</div>

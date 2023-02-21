@@ -1,27 +1,21 @@
 <div>
 
-<form class="form-flex" action="/profiles/client-edit" method="post">
-    <h1 class="title">Client's form</h1>
+<form class="form-flex" action="/client-create" method="post" enctype='multipart/form-data'>
+    <h1 class="title">Client's form</h1><br><br>
     
     <label for="firstName">First name
-        <input class="input" type="text" name="firstName" value="{{kiddoscare.firstName}}">
+        <input class="input" type="text" name="firstName"  id="firstName" value="{{firstName}}">
     </label>
     
 
     <label for="lastName">Last name
-        <input class="input" type="text" name="lastName" value="{{kiddoscare.lastName}}">
+        <input class="input" type="text" name="lastName" id="lastName" value="{{lastName}}">
     </label>
     
     <label for="email">Email
-        <input class="input" type="text" name="email" value="{{kiddoscare.email}}">
+        <input class="input" type="email" name="email" id="email" value="{{email}}">
     </label>
     
-
-    <label for="password">Password
-        <input class="input" type="text" name="password" value="{{password}}">
-    </label>
-    
-
     <label for="phoneNumber">Phone number
         <input class="input" type="text" name="phoneNumber">
     </label>
@@ -30,7 +24,7 @@
 
     <label for="area">Area
         <input class="input"type="text" name="area">
-    </label>
+    </label><br><br>
     
     <button type="submit" class="button btn btn-secondary btn-lg">SUBMIT</button>
 </form>

@@ -2,6 +2,10 @@
 
 /* NAV BAR */
 
+.is-hidden {
+  display: none;
+}
+
 .nav-bar {
   display: flex;
   justify-content: space-between;
