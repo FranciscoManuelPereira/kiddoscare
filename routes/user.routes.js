@@ -17,12 +17,12 @@ router.post("/options", isLoggedIn, async (req, res, next) => {
   if (accountType === "babysitter") {
     await User.findByIdAndUpdate(id, { babysitter: true });
 
-    res.render("profiles/babysitter-edit");
+    res.render("profiles/babysitter-create");
 
   } else if (accountType === "client") {
     await User.findByIdAndUpdate(id, { babysitter: false });
 
-    res.render("profiles/client-edit");
+    res.render("profiles/client-create");
   }
 });
 
@@ -30,11 +30,11 @@ router.post("/options", isLoggedIn, async (req, res, next) => {
 
 // GET /profiles/babysitter
 router.get("/babysitter-edit/", isLoggedOut, (req, res) => {
-  res.render("profiles/babysitter-edit");
+  res.render("profiles/babysitter-create");
 });
 
 // POST /profiles/babysitter
-router.post("/babysitter-edit", isLoggedOut, (req, res) => {
+router.post("/babysitter-create", isLoggedOut, (req, res) => {
   const {
     firstName,
     lastName,
@@ -56,11 +56,11 @@ router.post("/babysitter-edit", isLoggedOut, (req, res) => {
 
 // GET /profiles/client
 router.get("/client-edit/", isLoggedOut, (req, res) => {
-  res.render("profiles/client-edit");
+  res.render("profiles/client-create");
 });
 
 // POST /profiles/client
-router.post("/client-edit/", isLoggedOut, (req, res) => {
+router.post("/client-create/", isLoggedOut, (req, res) => {
   const { firstName, lastName, email, password, phoneNumber, image } = req.body;
 
   res.redirect("/client");
