@@ -13,6 +13,10 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
+hbs.registerHelper("isBabysitter", function () {
+  return req.session.currentUser = true;
+});
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
@@ -59,10 +63,11 @@ logout.addEventListener('click', function(e) {
   } else {
     x.type = "password";
   }
-};
+}
 
-var password = document.getElementById("password")
+/* var password = document.getElementById("password")
   , confirm_password = document.getElementById("confirmPassword");
 
- */
+   */
+
 module.exports = app;
