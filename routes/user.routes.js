@@ -32,21 +32,6 @@ router.get("/babysitter-create", isLoggedIn, (req, res) => {
   res.render("profiles/babysitter-create");
 });
 
-/* router.get("/babysitter-create", isLoggedIn, async (req, res, next) => {
-try {
-  const {id} = req.params;
-  const {firstName, lastName, email} = req.body;
-
-  await User.findById(id, {firstName, lastName, email});
-
-  res.render("profiles/babysitter-create", {firstName, lastName, email});
-  
-} catch (error) {
-  console.log(error);
-  next(error);
-}
-  
-}); */
 
 // POST /profiles/babysitter-create
 router.post("/babysitter-create", isLoggedIn, (req, res) => {
@@ -164,6 +149,26 @@ router.post("/client-edit/:id", async (req, res, next) => {
   }
 })
 
+// GET /babysitters-list
+router.get("/babysitters-list", isLoggedIn, async (req, res) => {
+   res.render("babysitters-list");
+})
 
+// POST /babysitters-list
+router.post("/babysitters-list", async (req, res) => {
+  const { id } = req.params;
+  
+  try {
+   const babysitters = await User.findById(id);
+   
+   if(accountType === "babysitter") {
+     res.render("babysitters-list", {babysitters});
+   }
+
+ } catch (error) {
+   console.log(error);
+   next(error);
+ } 
+})
 
 module.exports = router;

@@ -1,11 +1,13 @@
 <h1>All babysitters</h1>
 
-{{#each babysitter}}
-<div>
-    <img src="{{image}}" alt="image-babysitter">
-    <h5>{{firstname}} {{lastName}}</h5>
-    <p>{{experience}}</p>
-    <p>{{phoneNumber}}</p>
-    <a href="/profiles/babysitter/{{_id}}">View profile</a>
+{{#each user}}
+<div class="card" style="width: 18rem;">
+  <img src="{{babysitter.image}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{babysitter.firstname}} {{babysitter.lastName}}</h5>
+    <p class="card-text">{{babysitter.experience}}</p>
+    <a href="/profiles/babysitter/{{_id}}" class="btn btn-primary">View profile</a>
+  </div>
 </div>
 {{/each}}
+
