@@ -1,18 +1,22 @@
-<h1>Profile</h1>
 
-<p>First name: {{user.firstName}}</p>
-<p>Last name: {{user.lastName}}</p>
-<p>Email: {{user.email}}</p>
-<p>Phone number: {{user.phoneNumber}}</p>
-<p><label for="image">Image: <input type="file" name="image"> </label></p>
-<p>Age: {{user.age}}</p>
-<p>Experience: {{user.experience}}</p>
-<p> <label for="criminalRecord">Criminal record: <input type="file" name="criminalRecord"> </label> </p>
-<p>Language: {{user.language}}</p>
-<p>Language: {{user.linkedin}}</p>
-<p>Language: {{user.price}}</p>
-<p>Area: {{user.area}}</p>
+<h1 class="my-profile">My profile</h1>
 
-
-<a href="/babysitter-edit/{{user._id}}">Edit profile</a>
-<a href="/babysitter-edit/{{user._id}}/delete">Delete profile</a>
+<div class="container-profile">
+  <img src="{{user.image}}" class="profile-img" alt="user-image">
+  <ul class="profile-ul">
+    <li class="profile-li">{{user.firstName}} {{user.lastName}}</li>
+    <li class="profile-li">{{user.email}}</li>
+    <li class="profile-li">{{user.phoneNumber}}</li>
+    <li class="profile-li">{{user.area}}</li>
+    <li class="profile-li">{{user.age}}</li>
+    <li class="profile-li">{{user.experience}}</li>
+    <li class="profile-li">{{user.criminalRecord}}</li>
+    <li class="profile-li">{{user.language}}</li>
+    <li class="profile-li">{{user.linkedin}}</li>
+    <li class="profile-li">{{user.price}}€ / hour</li>
+  </ul>
+  <div class="flex-a-profile">
+    <a href="/babysitter-edit/{{user._id}}" class="a-profile btn btn-secondary btn-lg">Edit profile</a>
+    <a href="/babysitter-edit/{{user._id}}/delete" class="a-profile btn btn-secondary btn-lg">Delete profile</a>
+  </div>
+</div>

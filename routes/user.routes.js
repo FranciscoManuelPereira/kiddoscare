@@ -60,7 +60,7 @@ router.get("/client-create", isLoggedIn, (req, res) => {
 
 // POST /profiles/client-create
 router.post("/client-create", isLoggedIn, (req, res) => {
-  const { firstName, lastName, email, password, phoneNumber, image } = req.body;
+  const { firstName, lastName, email, password, phoneNumber, image, area } = req.body;
 
   res.redirect("/client");
 });
