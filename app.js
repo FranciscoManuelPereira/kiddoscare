@@ -49,7 +49,10 @@ logout.addEventListener('click', function(e) {
   login.classList.remove('is-hidden');
 }) */
 
-function showPassword() {
+
+//Change password and view hiden password
+
+/* function showPassword() {
   var x = document.getElementById("password");
   if (x.type === "password") {
     x.type = "text";
@@ -61,6 +64,5 @@ function showPassword() {
 var password = document.getElementById("password")
   , confirm_password = document.getElementById("confirmPassword");
 
-  
-
+ */
 module.exports = app;
