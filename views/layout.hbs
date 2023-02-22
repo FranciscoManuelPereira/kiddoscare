@@ -29,7 +29,7 @@
           <a class="nav-link" href="/">Homepage</a>
         </li>
 
-        {{#if loggedIn}}
+        {{#if user}}
           <li class="nav-item">
             <a class="nav-link" href="/auth/logout">Logout</a>
           </li>
@@ -42,19 +42,17 @@
           </li>
         {{/if}}
 
-       
-          <li class="nav-item">
-            <a class="nav-link" href="/babysitters-list">Search babysitters</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/babysitters-list">Search babysitters</a>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/client">{{user.firstName}} profile</a>
-          </li>
-       
-          <li class="nav-item">
-            <a class="nav-link" href="/babysitter">My profile</a>
-          </li>
-        
+        <li class="nav-item">
+          <a class="nav-link" href="/client">{{user.firstName}} profile</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/babysitter">My profile</a>
+        </li>
 
       </ul>
     </div>

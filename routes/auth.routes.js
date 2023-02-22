@@ -1,6 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
+// routes/movie.routes.js
+// ... all imports stay unchanged
+
+// **** require Movie model in order to use it ****
+const fileUploader = require("../config/cloudinary.config");
+
 // ℹ️ Handles password encryption
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
@@ -70,6 +76,7 @@ router.post("/signup", (req, res) => {
     })
     .then((user) => {
       req.session.currentUser = user.toObject();
+      req.session.loggedin = true;
       delete req.session.currentUser.password;
       res.redirect("/options");
     })
@@ -147,7 +154,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
           // Add the user object to the session object
           req.session.currentUser = user.toObject();
-          req.app.locals.loggedIn = true;
+          req.session.loggedin = true;
           // Remove the password field
           delete req.session.currentUser.password;
 
@@ -165,7 +172,7 @@ router.get("/logout", isLoggedIn, (req, res) => {
       res.status(500).render("auth/logout", { errorMessage: err.message });
       return;
     }
-    req.app.locals.loggedIn = false;
+    req.app.locals.loggedin = false;
     res.redirect("/");
   });
 });

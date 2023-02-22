@@ -9,7 +9,7 @@ const reviewsSchema = new Schema (
             type: String,
         },
 
-        rate: {
+        rating: {
             type: Number,
         }
     },
