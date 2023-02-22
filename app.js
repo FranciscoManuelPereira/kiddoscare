@@ -14,19 +14,24 @@ const express = require("express");
 const hbs = require("hbs");
 
 hbs.registerHelper("isBabysitter", function () {
-  return req.session.currentUser = true;
+  return (req.session.currentUser = true);
 });
 
 const app = express();
-
+/* 
+app.use(function (req, res, next) {
+  res.locals.session = req.session;
+  next();
+});
+ */
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
 const capitalize = require("./utils/capitalize");
 const projectName = "kiddoscare";
 
-app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
-
+/* app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
+ */
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
@@ -52,7 +57,6 @@ logout.addEventListener('click', function(e) {
   this.classList.add('is-hidden');
   login.classList.remove('is-hidden');
 }) */
-
 
 //Change password and view hiden password
 

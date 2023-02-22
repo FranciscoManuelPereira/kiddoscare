@@ -72,7 +72,7 @@ const userSchema = new Schema(
     },
 
     price: {
-      type: String,
+      type: Number,
       default: "",
     },
 

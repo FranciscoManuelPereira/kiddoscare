@@ -1,5 +1,5 @@
 <div>
-<form class="form-flex" action="/profiles/babysitter-edit/{{babysitter._id}}" method="post">
+<form class="form-flex" action="/babysitter-edit/{{babysitter._id}}" method="post" enctype='multipart/form-data'>
     <h1 class="title">Babysitter's form</h1>
     
     <label for="firstName">First name 
@@ -38,12 +38,64 @@
         <input class="input" type="text" name="language" value="{{babysitter.language}}">
     </label>
 
+    <label for="availability"> Tell us your availability
+
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">2º</th>
+      <th scope="col">3º</th>
+      <th scope="col">4º</th>
+      <th scope="col">5º</th>
+      <th scope="col">6º</th>
+      <th scope="col">Sá</th>
+      <th scope="col">Do</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Morning</th>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+    </tr>
+    <tr>
+      <th scope="row">Afternoon</th>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+    </tr>
+    <tr>
+      <th scope="row">Night</th>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input type="checkbox" id="available" name="checkbox"></td>
+    </tr>
+  </tbody>
+</table>
+
+    </label>
+
+
     <label for="linkedin">Linkedin
         <input class="input" type="text" name="linkedin" value="{{babysitter.linkedin}}">
     </label>
     
     <label for="price">Price/hour
-        <input class="input" type="text" name="price" value="{{babysitter.price}}">
+        <input class="input" type="number" name="price" value="{{babysitter.price}}">
     </label>
 
     <label for="area">Area 

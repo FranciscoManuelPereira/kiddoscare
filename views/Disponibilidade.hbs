@@ -1,31 +1,4 @@
-<div>
-<form class="form-flex" action="/babysitter-create" method="post" enctype="multipart/form-data">
-    <h1 class="title">Babysitter's form</h1>
-    
-    <label for="phoneNumber">Phone number
-        <input class="input" type="text" name="phoneNumber" value="{{phoneNumber}}">
-    </label>
-    
-    <label for="image">Image: <input class="input" type="file" name="image" value="{{user.image}}"> </label>
-
-    <label for="age">Age
-        <input class="input" type="text" name="age" value="{{age}}">
-    </label>
-    
-
-    <label for="experience">Experience
-        <textarea class="input" name="experience" id="experience" cols="30" rows="10"></textarea>     
-    </label>
-
-    <label for="criminalRecord">Criminal record: <input class="input" type="file" name="criminalRecord"> </label>
-
-    <label for="language">Spoken languages
-        <input class="input" type="text" name="language" value="{{language}}">
-    </label>
-
-    <label for="availability"> Tell us your availability
-
-        <table class="table">
+<table class="table">
   <thead>
     <tr>
       <th scope="col"></th>
@@ -71,22 +44,3 @@
     </tr>
   </tbody>
 </table>
-
-    </label>
-
-    <label for="linkedin">Linkedin
-        <input class="input" type="text" name="linkedin" value="{{linkedin}}">
-    </label>
-    
-    <label for="price">Price/hour
-        <input class="input" type="number" name="price" min="1" max="20" value="{{price}}">
-    </label>
-
-
-    <label for="area">Area 
-        <input class="input" type="text" name="area" value="{{area}}"> 
-    </label>
-    
-    <button type="submit" class="button btn btn-secondary btn-lg">SUBMIT</button>
-</form>
-</div>
