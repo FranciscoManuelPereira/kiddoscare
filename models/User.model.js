@@ -24,8 +24,8 @@ const userSchema = new Schema(
     },
 
     phoneNumber: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: "",
     },
 
     image: {
@@ -39,8 +39,8 @@ const userSchema = new Schema(
     },
 
     age: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: "",
     },
 
     experience: {
@@ -53,18 +53,22 @@ const userSchema = new Schema(
       default: "",
     },
 
-    /*     disponibility: [
+    disponibility: [
       {
-        day: {
-          type: String,
-          default: "",
+        morning: {
+          type: [String],
+          default: [""],
         },
-        slot: {
-          enum: ["morning", "afternoon", "night"],
-          default: "morning",
+        afternoon: {
+          type: [String],
+          default: [""],
+        },
+        night: {
+          type: [String],
+          default: [""],
         },
       },
-    ], */
+    ],
 
     linkedin: {
       type: String,
@@ -72,7 +76,7 @@ const userSchema = new Schema(
     },
 
     price: {
-      type: Number,
+      type: String,
       default: "",
     },
 

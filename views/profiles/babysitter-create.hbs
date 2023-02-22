@@ -17,7 +17,7 @@
         <textarea class="input" name="experience" id="experience" cols="30" rows="10"></textarea>     
     </label>
 
-    <label for="criminalRecord">Criminal record: <input class="input" type="file" name="criminalRecord"> </label>
+{{!--     <label for="criminalRecord">Criminal record: <input class="input" type="file" name="criminalRecord"> </label> --}}
 
     <label for="language">Spoken languages
         <input class="input" type="text" name="language" value="{{language}}">
@@ -40,34 +40,34 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">Morning</th>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
+                 <th scope="row">Morning</th>
+      <td><input value='monday' type="checkbox" id="available" name="morning"></td>
+      <td><input value='tuesday'  type="checkbox" id="available" name="morning"></td>
+      <td><input value='wednesday'  type="checkbox" id="available" name="morning"></td>
+      <td><input value='thursday'  type="checkbox" id="available" name="morning"></td>
+      <td><input value='friday'  type="checkbox" id="available" name="morning"></td>
+      <td><input value='saturday'  type="checkbox" id="available" name="morning"></td>
+      <td><input value='sunday'  type="checkbox" id="available" name="morning"></td>
     </tr>
     <tr>
       <th scope="row">Afternoon</th>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input value='monday'  type="checkbox" id="available" name="afternoon"></td>
+      <td><input value='tuesday'  type="checkbox" id="available" name="afternoon"></td>
+      <td><input value='wednesday'  type="checkbox" id="available" name="afternoon"></td>
+      <td><input value='thursday'  type="checkbox" id="available" name="afternoon"></td>
+      <td><input value='friday'  type="checkbox" id="available" name="afternoon"></td>
+      <td><input value='saturday'  type="checkbox" id="available" name="afternoon"></td>
+      <td><input value='sunday'  type="checkbox" id="available" name="afternoon"></td>
     </tr>
     <tr>
       <th scope="row">Night</th>
-      <td colspan="2"><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
-      <td><input type="checkbox" id="available" name="checkbox"></td>
+      <td><input value='monday'  type="checkbox" id="available" name="night"></td>
+      <td><input value='tuesday'  type="checkbox" id="available" name="night"></td>
+      <td><input value='wednesday'  type="checkbox" id="available" name="night"></td>
+      <td><input value='thursday'  type="checkbox" id="available" name="night"></td>
+      <td><input value='friday'  type="checkbox" id="available" name="night"></td>
+      <td><input value='saturday'  type="checkbox" id="available" name="night"></td>
+      <td><input value='sunday'  type="checkbox" id="available" name="night"></td>
     </tr>
   </tbody>
 </table>

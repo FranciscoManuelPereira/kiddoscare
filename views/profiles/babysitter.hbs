@@ -1,8 +1,7 @@
-
 <h1 class="my-profile">My profile</h1>
 
 <div class="container-profile">
-  <img src="{{user.image}}" class="profile-img" alt="user-image">
+  <img src="{{user.image}}" class="profile-img" alt="user-image" />
   <ul class="profile-ul">
     <li class="profile-li">{{user.firstName}} {{user.lastName}}</li>
     <li class="profile-li">{{user.email}}</li>
@@ -16,7 +15,31 @@
     <li class="profile-li">{{user.price}}€ / hour</li>
   </ul>
   <div class="flex-a-profile">
-    <a href="/babysitter-edit/{{user._id}}" class="a-profile btn btn-secondary btn-lg">Edit profile</a>
-    <a href="/babysitter-edit/{{user._id}}/delete" class="a-profile btn btn-secondary btn-lg">Delete profile</a>
+
+    <h3>Disponibility:</h3>
+
+    <h4>Morning:</h4>
+    {{#each user.disponibility.0.morning}}
+      <p>{{this}}</p>
+    {{/each}}
+
+    <h4>Afternoon:</h4>
+    {{#each user.disponibility.0.afternoon}}
+      <p>{{this}}</p>
+    {{/each}}
+
+    <h4>Night:</h4>
+    {{#each user.disponibility.0.night}}
+      <p>{{this}}</p>
+    {{/each}}
+
+    <a
+      href="/babysitter-edit/{{user._id}}"
+      class="a-profile btn btn-secondary btn-lg"
+    >Edit profile</a>
+    <a
+      href="/babysitter-edit/{{user._id}}/delete"
+      class="a-profile btn btn-secondary btn-lg"
+    >Delete profile</a>
   </div>
 </div>

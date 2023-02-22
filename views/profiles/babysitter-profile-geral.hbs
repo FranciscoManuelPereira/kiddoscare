@@ -1,9 +1,11 @@
 <h1>Hi, my name is {{user.firstName}} {{user.lastName}}</h1>
 <hr />
-<img src="{{user.imgUrl}}" alt="Profile Image">
-<p>Email: {{user.email}}</p>
-<p>Phone number: {{user.phoneNumber}}</p>
+<img src="{{user.image}}" alt="Profile Image">
+<p>{{user.email}}</p>
+<p>{{user.phoneNumber}}</p>
 <p>Rating: {{user.rating}}/5</p>
+<p>{{user.experience}}</p>
+<p>{{user.area}}</p>
 <hr />
 
 <form action='/review/create/{{user._id}}' method='post'>
@@ -14,9 +16,9 @@
   </select>
 
   <textarea name='content' id='content' cols='30' rows='10'></textarea>
-  <label for='rating'>Rating</label>
+  <label for='rating'>Give a rate</label>
   <input type='number' name='rating' id='rating' min="0" max="5" value='{{rating}}' />
-  <button type='submit'>Create Review</button>
+  <button type='submit'>Create a review</button>
 </form>
 
 <hr />
@@ -24,6 +26,5 @@
 {{#each babysitter.reviews}}
   <p>by {{this.author.firstName}}</p>
   <p> {{this.content}}</p>
-
 {{/each}}
 

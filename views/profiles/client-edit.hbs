@@ -1,5 +1,10 @@
 <div>
-  <form class="form-flex" action="/client-edit/{{client._id}}" method="post" enctype='multipart/form-data'>
+  <form
+    class="form-flex"
+    action="/client-edit/{{client._id}}"
+    method="post"
+    enctype="multipart/form-data"
+  >
     <h1 class="title">Edit profile</h1>
 
     <label for="firstName">First name
@@ -24,7 +29,9 @@
       <input class="input" type="email" name="email" value="{{client.email}}" />
     </label>
 
-    <label for="image">Image: <input class="input" type="file" name="image"> </label>
+       <label for="image">Image:
+      <input class="input" type="file" name="image" />
+    </label> 
 
     <label for="phoneNumber">Phone number
       <input
@@ -39,10 +46,10 @@
       <input class="input" type="text" name="area" value="{{client.area}}" />
     </label>
 
-    <label for="password">Password
+    {{!--  <label for="password">Password
       <a href="#">Change Password</a>
       {{! <input class="input" type="password" name="password" > }}
-    </label>
+    </label> --}}
 
     <button
       type="submit"
