@@ -2,22 +2,29 @@
 
 <div>
   <h4>Filter</h4>
-  <input type="text" placeholder="Search area" id="myInput" onkeyup="filterFunction()">
-    <a href="#">Search</a>
+  <input
+    type="text"
+    placeholder="Search area"
+    id="myInput"
+    onkeyup="filterFunction()"
+  />
+  <a href="#">Search</a>
 </div>
 
 <div class="flex-card">
-{{#each babyArray}}
+  {{#each babyArray}}
 
-  <div class="card" style="width: 18rem;">
-    <img src="{{image}}" class="card-img-top" alt="..." />
-    <div class="card-body">
-      <h5 class="card-title">{{firstName}} {{lastName}}</h5>
-      <p class="card-text">{{experience}}</p>
-      <a href="/profiles/babysitter/{{_id}}" class="btn btn-secondary btn-lg">View
-        profile</a>
+    <div class="card" style="width: 18rem;">
+      <img src="{{image}}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{firstName}} {{lastName}}</h5>
+        <p class="card-text">{{experience}}</p>
+        <a
+          href="/babysitter-profile-geral/{{_id}}"
+          class="btn btn-secondary btn-lg"
+        >View profile</a>
+      </div>
     </div>
-  </div>
 
-{{/each}}
+  {{/each}}
 </div>
