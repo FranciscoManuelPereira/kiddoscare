@@ -1,21 +1,89 @@
 <section>
     <div class="container-image">
-        <img class="background-image" src="/images/kids.png" alt="background-image">
+        <img class="background-image" src="/images/mother-child-babysitter.jpeg" alt="background-image">
         <div class="text-image">
             <h1>Welcome to the best platform of Babysitters</h1>
         </div> 
     </div>
-    <div>
-        <h3>Here akakakaka a akakak kakaka</h3>
+  <div class='col'>
+    <form action='' method='post' enctype='multipart/form-data'>
+        <h3>Take a look at our babysitter's profiles</h3>
+        
+    <div class='row card-group'>
+        {{!-- {{#each}} --}}
+        <div class="card" style="width: 18rem;">
+        {{!--      <label>Image:
+          <input type='file' name='poster' class="card-img-top" />
+        </label> --}}
+  <img src="{{user.image}}" class="card-img-top" alt="user-image">
+  <div class="card-body">
+    <h5 class="card-title">{{user.firstName}} {{user.lastName}} {{user.age}}</h5>
+    <p class="card-text">{{user.price}}€ / hour</p>
+    <a href="/babysitter/{{user._id}}" class="btn btn-primary">Meet</a>
+        </div>
+        </div>
+        {{!-- {{/each}} --}}
+
+          <div class="card" style="width: 18rem;">
+        {{!--      <label>Image:
+          <input type='file' name='poster' class="card-img-top" />
+        </label> --}}
+  <img src="{{user.image}}" class="card-img-top" alt="user-image">
+  <div class="card-body">
+    <h5 class="card-title">{{user.firstName}} {{user.lastName}} {{user.age}}</h5>
+    <p class="card-text">{{user.price}}€ / hour</p>
+    <a href="/babysitter/{{user._id}}" class="btn btn-primary">Meet</a>
+        </div>
+        </div>
+
+          <div class="card" style="width: 18rem;">
+        {{!--      <label>Image:
+          <input type='file' name='poster' class="card-img-top" />
+        </label> --}}
+  <img src="{{user.image}}" class="card-img-top" alt="user-image">
+  <div class="card-body">
+    <h5 class="card-title">{{user.firstName}} {{user.lastName}} {{user.age}}</h5>
+    <p class="card-text">{{user.price}}€ / hour</p>
+    <a href="/babysitter/{{user._id}}" class="btn btn-primary">Meet</a>
+        </div>
+        </div>
+
+          <div class="card" style="width: 18rem;">
+        {{!--      <label>Image:
+          <input type='file' name='poster' class="card-img-top" />
+        </label> --}}
+  <img src="{{user.image}}" class="card-img-top" alt="user-image">
+  <div class="card-body">
+    <h5 class="card-title">{{user.firstName}} {{user.lastName}} {{user.age}}</h5>
+    <p class="card-text">{{user.price}}€ / hour</p>
+    <a href="/babysitter/{{user._id}}" class="btn btn-primary">Meet</a>
+        </div>
+        </div>
     </div>
-    <div>
+     </form>
+    </div>
+    <div class="col">
         <h3>Ours priorities</h3>
-        <ul>
-            <li>um</li>
-            <li>dois</li>
-            <li>tres</li>
-            <li>quatro</li>
-        </ul>
+        <div class="row card-group">
+        <div class="card" style="width: 18rem;">
+  <img src="/images/huge-hands-help-protect-young-single-mother.jpeg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Your children's safety is our top priority</p>
+    </div>
+  </div>
+   <div class="card" style="width: 18rem;">
+  <img src="/images/money.jpeg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">For families at an affordable price</p>
+    </div>
+  </div>
+   <div class="card" style="width: 18rem;">
+  <img src="/images/testimonials.jpeg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Recommendations and reviews</p>
+    </div>
+  </div>
+</div>
     </div>
     <div>
         <h3>How it works</h3>
