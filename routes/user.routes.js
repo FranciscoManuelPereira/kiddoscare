@@ -289,4 +289,56 @@ router.post('/review/delete/:id', async (req, res, next) => {
   }
 });
 
+router.get('/profile', isLoggedIn, async (req, res, next) =>{
+  try {
+      const {session} = req
+      const currentUserId = req.session.currentUser._id;
+      /* currentUser.populate('favorites'); */
+      const currentUser = await User.findById(currentUserId).populate('favorites');
+      res.render('profile/profile', {currentUser, session})
+  } catch (error) {
+      console.log(error);
+      next(error)
+  }
+})
+
+router.post("/deleteFavorite/:id", async (req, res, next) => {
+
+  const babysitterId = req.params.id;
+  const userId = req.session.currentUser._id
+
+  try {
+      const babysitterRemove = await User.findById(userId)
+      await User.findByIdAndUpdate(userId, {$pull: {favorites: babysitterId}});
+      await User.findByIdAndRemove(babysitterId);
+      
+      
+
+      res.redirect("/profile");
+      
+  } catch (error) {
+      console.log(error)
+      next(error)
+  }
+})
+
+router.get("/edit-profile", (req, res, next) => {
+  const {session} = req
+  res.render("profile/edit-profile", {session})
+})
+
+router.post("/edit-profile", async (req, res, next) =>{
+  const newProfilePicture = req.body.pic
+  console.log(req.body.pic)
+  const userId = req.session.currentUser._id
+  console.log(req.session.currentUser)
+
+  try {
+      await User.findByIdAndUpdate(userId, {profilePicture: newProfilePicture})
+      res.redirect("/profile")
+  } catch (error) {
+      console.log(error)
+      next(error)
+  }
+})
 module.exports = router;
