@@ -166,6 +166,8 @@ margin: 10px 80px 50px 80px;
 
 .profile-img {
   margin: 10px 30px 40px 40px;
+  width: 360px;
+  height: 360px;
 }
 
 .profile-li {
