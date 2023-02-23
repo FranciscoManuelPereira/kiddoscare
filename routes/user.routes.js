@@ -222,11 +222,11 @@ router.post(
       } = req.body;
 
       let image;
+      
       if (req.file) {
         image = req.file.path;
-      } else {
-        image = "https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png";
       }
+
       const updatedUserBabysitter = await User.findByIdAndUpdate(
         id,
         {
@@ -288,8 +288,6 @@ router.post(
       let image;
       if (req.file) {
         image = req.file.path;
-      } else {
-        image = "https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png";
       }
 
       const updatedUserClient = await User.findByIdAndUpdate(
@@ -410,6 +408,7 @@ router.get("/profile", isLoggedIn, async (req, res, next) => {
   }
 });
 
+
 /* router.post("/deleteFavorite/:id", async (req, res, next) => {
   const babysitterId = req.params.id;
   const userId = req.session.currentUser._id;
@@ -454,7 +453,7 @@ router.post("/review/create/:id", async (req, res, next) => {
 });
 
 
-// POST / delete review
+/* // POST / delete review
 router.post("/review/delete/:id", async (req, res, next) => {
   const { id } = req.params;
 
@@ -470,6 +469,6 @@ router.post("/review/delete/:id", async (req, res, next) => {
     console.log(error);
     next(error);
   }
-});
+}); */
 
 module.exports = router;
