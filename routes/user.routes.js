@@ -86,6 +86,11 @@ router.post(
         price,
         language,
         location,
+        disponibility: {
+          morning,
+          afternoon,
+          night
+        }
       } = req.body;
 
       let image;
@@ -110,6 +115,11 @@ router.post(
         price,
         language,
         location,
+        disponibility: {
+          morning,
+          afternoon,
+          night
+        }
       });
 
       res.redirect("/babysitter");
@@ -338,6 +348,7 @@ router.get("/babysitters-list", isLoggedIn, async (req, res, next) => {
 router.get("/babysitter-profile-geral/:id", isLoggedIn, async (req, res, next) => {
   try {
     const { id } = req.params;
+    const user = req.session.currentUser;
 
     const babysitter = await User.findById(id).populate('reviewsReceived')
     .populate({
@@ -348,7 +359,7 @@ router.get("/babysitter-profile-geral/:id", isLoggedIn, async (req, res, next) =
       }
     });
 
-    res.render("profiles/babysitter-profile-geral", babysitter);
+    res.render("profiles/babysitter-profile-geral", babysitter, user);
   } catch (error) {
     console.log(error);
     next(error);
