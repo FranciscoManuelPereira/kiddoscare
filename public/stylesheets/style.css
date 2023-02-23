@@ -237,6 +237,7 @@ margin: 10px 80px 50px 80px;
   padding: 20px;  
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: rgba(128, 128, 128, 0.159);
   border-radius: 7px;
 }
@@ -244,7 +245,7 @@ margin: 10px 80px 50px 80px;
 .mini-container {
   font-size: 25px;
   padding: 30px;
-  margin: 30px 15px;
+  margin: 30px 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
