@@ -42,17 +42,20 @@
           </li>
         {{/if}}
 
+      {{#unless user.babysitter}}
         <li class="nav-item">
           <a class="nav-link" href="/babysitters-list">Search babysitters</a>
         </li>
-
         <li class="nav-item">
           <a class="nav-link" href="/client">{{user.firstName}} profile</a>
         </li>
-
+        {{else}}
         <li class="nav-item">
           <a class="nav-link" href="/babysitter">My profile</a>
         </li>
+        {{/unless}}
+
+        
 
       </ul>
     </div>

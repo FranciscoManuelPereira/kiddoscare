@@ -1,30 +1,27 @@
-<h1>Hi, my name is {{user.firstName}} {{user.lastName}}</h1>
+
+<h1>Hi, my name is {{firstName}} {{lastName}}</h1>
 <hr />
-<img src="{{user.image}}" alt="Profile Image">
-<p>{{user.email}}</p>
-<p>{{user.phoneNumber}}</p>
-<p>Rating: {{user.rating}}/5</p>
-<p>{{user.experience}}</p>
-<p>{{user.area}}</p>
+<img src="{{image}}" alt="babysitter-image">
+<p>{{email}}</p>
+<p>{{phoneNumber}}</p>
+<p>Rating: {{rating}}/5</p>
+<p>{{experience}}</p>
+<p>{{area}}</p>
 <hr />
 
-<form action='/review/create/{{user._id}}' method='post'>
-  <select name='author' id='author'>
-    {{#each users}}
-      <option value='{{_id}}'>{{username}}</option>
-    {{/each}}
-  </select>
+
+<form action='/review/create/{{_id}}' method='post'>
 
   <textarea name='content' id='content' cols='30' rows='10'></textarea>
   <label for='rating'>Give a rate</label>
-  <input type='number' name='rating' id='rating' min="0" max="5" value='{{rating}}' />
+  <input type='number' name='rating' id='rating' min="0" max="5" />
   <button type='submit'>Create a review</button>
 </form>
 
 <hr />
 
-{{#each babysitter.reviews}}
-  <p>by {{this.author.firstName}}</p>
-  <p> {{this.content}}</p>
+{{#each reviewsReceived}}
+  <p>by {{author.firstName}}</p>
+  <p> {{content}}</p>
 {{/each}}
 

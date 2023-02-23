@@ -335,24 +335,27 @@ router.get("/babysitters-list", isLoggedIn, async (req, res, next) => {
 });
 
 // GET babysitter-profile-geral
-router.get("/babysitter-profile-geral/:id", fileUploader.single("image"), isLoggedIn, async (req, res, next) => {
+router.get("/babysitter-profile-geral/:id", isLoggedIn, async (req, res, next) => {
   try {
-    const userId = req.session.currentUser._id;
-    const user = await User.findById(userId);
+    const { id } = req.params;
 
-    let image;
-      if (req.file) {
-        image = req.file.path;
-      } else {
-        image = "https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png";
+    const babysitter = await User.findById(id).populate('reviewsReceived')
+    .populate({
+      path: 'reviewsReceived',
+      populate: {
+        path: 'author',
+        model: 'User',
       }
+    });
 
-    res.render("profiles/babysitter-profile-geral", { user });
+    res.render("profiles/babysitter-profile-geral", babysitter);
   } catch (error) {
     console.log(error);
     next(error);
   }
 });
+
+
 
 // POST /delete babysitter profile
 router.post("/babysitter-edit/:id/delete", async (req, res, next) => {
@@ -432,18 +435,21 @@ router.get("/profile", isLoggedIn, async (req, res, next) => {
 router.post("/review/create/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { author, receiver, content, rating } = req.body;
+    const { content, rating } = req.body;
+    const author = req.session.currentUser._id;
 
     // create
-    const newReview = await Review.create({
+    const newReview = await Reviews.create({
       author,
-      receiver,
+      receiver: id,
       content,
       rating,
     });
 
     // add review to user
-    await User.findByIdAndUpdate(author, { $push: { reviews: newReview._id } });
+    await User.findByIdAndUpdate(author, { $push: { reviewsWritten: newReview._id } });
+
+    await User.findByIdAndUpdate(id, { $push: { reviewsReceived: newReview._id } });
 
     res.redirect("/babysitters-list");
   } catch (error) {
