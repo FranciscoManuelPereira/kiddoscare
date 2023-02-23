@@ -72,7 +72,7 @@
   align-items: center;
   justify-content: flex-start;
   background-color: rgba(128, 128, 128, 0.159);
-  border-radius: 7px;
+  border-radius: 7px; 
 }
 
 .title {
@@ -110,6 +110,8 @@
 
 .profile-img {
   margin: 10px 30px 40px 40px;
+  width: 360px;
+  height: 360px;
 }
 
 .profile-li {
