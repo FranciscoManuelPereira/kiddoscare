@@ -1,22 +1,33 @@
-<h1 class="sub-title">My profile</h1>
+<div class="all-container">
+  <h1 class="sub-title">My profile</h1>
 
-<div class="container-profile">
-  <img src="{{user.image}}" class="profile-img" alt="user-image" />
-  <ul class="profile-ul">
-    <li class="profile-li">{{user.firstName}} {{user.lastName}}</li>
-    <li class="profile-li">{{user.email}}</li>
-    <li class="profile-li">{{user.phoneNumber}}</li>
-    <li class="profile-li">{{user.location}}</li>
-  </ul>
-  <div class="flex-a-profile">
-    <a
-      href="/client-edit/{{user._id}}"
-      class="a-profile btn btn-secondary btn-lg"
-    >Edit profile</a>
+  <div class="container-profile">
 
-    <a
-      href="/client-delete/{{user._id}}"
-      class="a-profile btn btn-secondary btn-lg"
-    >Delete profile</a>
+<div class="mini-container">
+    <img class="profile-img" src="{{user.image}}" class="profile-img" alt="user-image" />
+    <div>
+    <ul>
+      <li class="profile-li">{{user.firstName}} {{user.lastName}}</li>
+      <li class="profile-li">{{user.email}}</li>
+      <li class="profile-li">{{user.phoneNumber}}</li>
+      <li class="profile-li">{{user.location}}</li>
+    </ul>
   </div>
+
+</div>
+
+    <div class="flex-a-profile">
+      <a
+        href="/client-edit/{{user._id}}"
+        class="a-profile btn btn-secondary btn-lg"
+      >Edit profile</a>
+
+      <a
+        href="/client-delete/{{user._id}}"
+        class="a-profile btn btn-secondary btn-lg"
+      >Delete profile</a>
+    </div>
+
+  </div>
+
 </div>

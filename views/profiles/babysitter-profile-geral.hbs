@@ -1,46 +1,65 @@
+<div class="background-profile-geral">
+  <h1 class="sub-title">Hi, my name is <b>{{firstName}} {{lastName}}</b></h1>
 
-<h1 class="sub-title">Hi, my name is {{firstName}} {{lastName}}</h1>
+  <div class="container-profile-geral">
 
-<div class="container-profile-geral">
-  <img class="img-profile-geral" src="{{image}}" alt="babysitter-image">
-  <div class="mini-container">
-    <p>{{email}}</p>
-    <p>{{phoneNumber}}</p>
-    <p>Rating: {{rating}}/5</p>
-    <p>{{experience}}</p>
-    <p>Location: {{location}}</p>
-    <p>{{#each disponibility.0.morning}}
-          <p>{{this}}</p>
-        {{/each}}
+    <div class="mini-container">
+      <img class="img-profile-geral" src="{{image}}" alt="babysitter-image">
+    <div>
+      <p>My email: {{email}}</p>
+      <p>My phone number: {{phoneNumber}}</p>
+      <p>My experience: {{experience}}</p>
+      <p>My location to work: {{location}}</p>
+      <p>Rating: {{rating}}/5</p>
+    </div>
+    </div>
 
-        <h4>Afternoon:</h4>
-        {{#each disponibility.0.afternoon}}
-          <p>{{this}}</p>
-        {{/each}}
-
-        <h4>Night:</h4>
-        {{#each disponibility.0.night}}
-          <p>{{this}}</p>
-        {{/each}}</p>
-  </div>
-
-  <div>
-    {{#each reviewsReceived}}
-      <p>by {{author.firstName}}</p>
-      <p> {{content}}</p>
-    {{/each}}
-  </div>
-
-  <div>
-    <form class="form-flex" action='/review/create/{{_id}}' method='post'>
-      <textarea name='content' id='content' cols='30' rows='10'>Write a review...</textarea>
-      <div class="label-flex">
-        <label for='rating'>Give a rate</label>
-        <input type='number' name='rating' id='rating' min="0" max="5" />
-        <button type='submit'>Create a review</button>
+    <div class="mini-container">
+          <h4>DISPONIBILITY</h4>
+          <div class="flex-disponibility">
+            <h4 class="mini-titles">Morning:</h4>
+            {{#each disponibility.0.morning}}
+              <p> {{this}}</p>
+            {{/each}}
+          </div>
+          <div class="flex-disponibility">
+            <h4 class="mini-titles">Afternoon:</h4>
+            {{#each disponibility.0.afternoon}}
+              <p>{{this}}</p>
+            {{/each}}
+          </div>
+          <div class="flex-disponibility">
+            <h4 class="mini-titles">Night:</h4>
+            {{#each disponibility.0.night}}
+              <p>{{this}}</p>
+            {{/each}}</p>
+          </div>
       </div>
-    </form>
-  </div>
+      
+      <div class="write-review">
+        <form class="form-flex" action='/review/create/{{_id}}' method='post'>
+          <textarea class="textaera" name='content' id='content' cols='60' rows='8'>Write a review...</textarea>
+          <div class="label-flex">
+            <label for='rating'>Rate</label>
+            <input class="each" type='number' name='rating' id='rating' min="0" max="5" />
+            <button class="a-profile btn btn-secondary btn-lg" type='submit'>Create a review</button>
+          </div>
+        </form>
+      </div>
 
+    </div>
+  </div>
 </div>
 
+  <div> 
+    <h1 class="sub-title">My reviews</h1>
+      
+    <div class="review-flex">
+      {{#each reviewsReceived}}
+      <div class="review">
+        <p>by <b>{{author.firstName}} {{author.lastName}}</b></p>
+        <p> {{content}}</p>
+       </div>
+      {{/each}}
+   </div>
+  </div> 
