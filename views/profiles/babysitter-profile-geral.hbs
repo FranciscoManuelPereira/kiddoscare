@@ -6,7 +6,20 @@
 <p>{{phoneNumber}}</p>
 <p>Rating: {{rating}}/5</p>
 <p>{{experience}}</p>
-<p>{{area}}</p>
+<p>{{location}}</p>
+<p>{{#each disponibility.0.morning}}
+      <p>{{this}}</p>
+    {{/each}}
+
+    <h4>Afternoon:</h4>
+    {{#each disponibility.0.afternoon}}
+      <p>{{this}}</p>
+    {{/each}}
+
+    <h4>Night:</h4>
+    {{#each disponibility.0.night}}
+      <p>{{this}}</p>
+    {{/each}}</p>
 <hr />
 
 

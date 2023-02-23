@@ -85,7 +85,7 @@ router.post(
         linkedin,
         price,
         language,
-        area,
+        location,
       } = req.body;
 
       let image;
@@ -109,7 +109,7 @@ router.post(
         linkedin,
         price,
         language,
-        area,
+        location,
       });
 
       res.redirect("/babysitter");
@@ -132,7 +132,7 @@ router.post(
   fileUploader.single("image"),
   async (req, res, next) => {
     try {
-      const { phoneNumber, area } = req.body;
+      const { phoneNumber, location } = req.body;
       const thisUserId = req.session.currentUser._id;
 
       let thisImage;
@@ -145,7 +145,7 @@ router.post(
 
       const thisUser = await User.findByIdAndUpdate(thisUserId, {
         phoneNumber,
-        area,
+        location,
         image: thisImage,
       });
 
@@ -215,7 +215,7 @@ router.post(
         language,
         linkedin,
         price,
-        area,
+        location,
         morning,
         afternoon,
         night
@@ -242,7 +242,7 @@ router.post(
           language,
           linkedin,
           price,
-          area,
+          location,
           disponibility: {
             morning,
             afternoon,
@@ -283,7 +283,7 @@ router.post(
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const { firstName, lastName, email, phoneNumber, area } = req.body;
+      const { firstName, lastName, email, phoneNumber, location } = req.body;
 
       let image;
       if (req.file) {
@@ -297,7 +297,7 @@ router.post(
           lastName,
           email,
           phoneNumber,
-          area,
+          location,
           image,
         },
         { new: true }
