@@ -1,19 +1,23 @@
 <h1 class="my-profile">My profile</h1>
 
 <div class="container-profile">
-  <img src="{{user.image}}" class="profile-img" alt="user-image" />
-  <ul class="profile-ul">
-    <li class="profile-li">{{user.firstName}} {{user.lastName}}</li>
-    <li class="profile-li">{{user.email}}</li>
-    <li class="profile-li">{{user.phoneNumber}}</li>
-    <li class="profile-li">{{user.area}}</li>
-    <li class="profile-li">{{user.age}}</li>
-    <li class="profile-li">{{user.experience}}</li>
-    <li class="profile-li">{{user.criminalRecord}}</li>
-    <li class="profile-li">{{user.language}}</li>
-    <li class="profile-li">{{user.linkedin}}</li>
-    <li class="profile-li">{{user.price}}€ / hour</li>
+
+  <div class="mini-container">
+    <img src="{{user.image}}" class="profile-img" alt="user-image" />
+    <ul class="profile-ul">
+      <li class="profile-li">{{user.firstName}} {{user.lastName}}</li>
+      <li class="profile-li">{{user.email}}</li>
+      <li class="profile-li">{{user.phoneNumber}}</li>
+      <li class="profile-li">{{user.location}}</li>
+      <li class="profile-li">{{user.age}}</li>
+      <li class="profile-li">{{user.experience}}</li>
+      <li class="profile-li">{{user.criminalRecord}}</li>
+      <li class="profile-li">{{user.language}}</li>
+      <li class="profile-li">{{user.linkedin}}</li>
+      <li class="profile-li">{{user.price}}€ / hour</li>
   </ul>
+  </div>
+
   <div class="flex-a-profile">
 
     <h3>Disponibility:</h3>

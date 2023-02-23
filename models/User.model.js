@@ -85,7 +85,7 @@ const userSchema = new Schema(
       default: "",
     },
 
-    area: {
+    location: {
       type: String,
       default: "",
     },

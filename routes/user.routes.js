@@ -80,12 +80,13 @@ router.post(
         phoneNumber,
         age,
         experience,
-        /*  criminalRecord, */
-        /*  disponibility, */
         linkedin,
         price,
         language,
-        area,
+        location,
+        morning,
+        afternoon,
+        night,
       } = req.body;
 
       let image;
@@ -104,12 +105,15 @@ router.post(
         age,
         image,
         experience,
-        /* criminalRecord, */
-        /*  disponibility, */
         linkedin,
         price,
         language,
-        area,
+        location,
+        disponibility: {
+          morning,
+          afternoon,
+          night,
+        },
       });
 
       res.redirect("/babysitter");
@@ -132,7 +136,7 @@ router.post(
   fileUploader.single("image"),
   async (req, res, next) => {
     try {
-      const { phoneNumber, area } = req.body;
+      const { phoneNumber, location } = req.body;
       const thisUserId = req.session.currentUser._id;
 
       let thisImage;
@@ -145,7 +149,7 @@ router.post(
 
       const thisUser = await User.findByIdAndUpdate(thisUserId, {
         phoneNumber,
-        area,
+        location,
         image: thisImage,
       });
 
@@ -203,7 +207,7 @@ router.post(
       const { id } = req.params;
       console.log(req.body);
 
-            const {
+      const {
         firstName,
         lastName,
         email,
@@ -211,18 +215,18 @@ router.post(
         phoneNumber,
         age,
         experience,
-    /*     criminalRecord, */
+        /*     criminalRecord, */
         language,
         linkedin,
         price,
-        area,
+        location,
         morning,
         afternoon,
-        night
+        night,
       } = req.body;
 
       let image;
-      
+
       if (req.file) {
         image = req.file.path;
       }
@@ -238,22 +242,22 @@ router.post(
           image,
           age,
           experience,
-      /*     criminalRecord, */
+          /*     criminalRecord, */
           language,
           linkedin,
           price,
-          area,
+          location,
           disponibility: {
             morning,
             afternoon,
-            night
-          }
+            night,
+          },
         },
         { new: true }
       );
 
       req.session.currentUser = updatedUserBabysitter;
-      console.log(updatedUserBabysitter); 
+      console.log(updatedUserBabysitter);
 
       res.redirect("/babysitter");
     } catch (error) {
@@ -283,7 +287,7 @@ router.post(
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const { firstName, lastName, email, phoneNumber, area } = req.body;
+      const { firstName, lastName, email, phoneNumber, location } = req.body;
 
       let image;
       if (req.file) {
@@ -297,7 +301,7 @@ router.post(
           lastName,
           email,
           phoneNumber,
-          area,
+          location,
           image,
         },
         { new: true }
@@ -335,27 +339,31 @@ router.get("/babysitters-list", isLoggedIn, async (req, res, next) => {
 });
 
 // GET babysitter-profile-geral
-router.get("/babysitter-profile-geral/:id", isLoggedIn, async (req, res, next) => {
-  try {
-    const { id } = req.params;
+router.get(
+  "/babysitter-profile-geral/:id",
+  isLoggedIn,
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const user = req.session.currentUser;
 
-    const babysitter = await User.findById(id).populate('reviewsReceived')
-    .populate({
-      path: 'reviewsReceived',
-      populate: {
-        path: 'author',
-        model: 'User',
-      }
-    });
+      const babysitter = await User.findById(id)
+        .populate("reviewsReceived")
+        .populate({
+          path: "reviewsReceived",
+          populate: {
+            path: "author",
+            model: "User",
+          },
+        });
 
-    res.render("profiles/babysitter-profile-geral", babysitter);
-  } catch (error) {
-    console.log(error);
-    next(error);
+      res.render("profiles/babysitter-profile-geral", babysitter);
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
   }
-});
-
-
+);
 
 // POST /delete babysitter profile
 router.post("/babysitter-edit/:id/delete", async (req, res, next) => {
@@ -371,31 +379,6 @@ router.post("/babysitter-edit/:id/delete", async (req, res, next) => {
   }
 });
 
-//Get Details of Babysitter Profile
-/* router.get("/babysitter-profile-geral/:id", async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const babysitterPublicProfile = await User.findById(id)
-      .populate("reviews author")
-      .populate({
-        path: "reviews",
-        populate: {
-          path: "author",
-          model: "User",
-        },
-      });
-
-    const users = await User.find();
-    res.render("profile/babysitter-profile-geral", { users });
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-}); */
-
-
-
-
 router.get("/profile", isLoggedIn, async (req, res, next) => {
   try {
     const { session } = req;
@@ -410,26 +393,6 @@ router.get("/profile", isLoggedIn, async (req, res, next) => {
     next(error);
   }
 });
-
-
-/* router.post("/deleteFavorite/:id", async (req, res, next) => {
-  const babysitterId = req.params.id;
-  const userId = req.session.currentUser._id;
-
-  try {
-    const babysitterRemove = await User.findById(userId);
-    await User.findByIdAndUpdate(userId, {
-      $pull: { favorites: babysitterId },
-    });
-    await User.findByIdAndRemove(babysitterId);
-
-    res.redirect("/profile");
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-}); */
-
 
 // POST / review
 router.post("/review/create/:id", async (req, res, next) => {
@@ -447,27 +410,12 @@ router.post("/review/create/:id", async (req, res, next) => {
     });
 
     // add review to user
-    await User.findByIdAndUpdate(author, { $push: { reviewsWritten: newReview._id } });
+    await User.findByIdAndUpdate(author, {
+      $push: { reviewsWritten: newReview._id },
+    });
 
-    await User.findByIdAndUpdate(id, { $push: { reviewsReceived: newReview._id } });
-
-    res.redirect("/babysitters-list");
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-});
-
-
-/* // POST / delete review
-router.post("/review/delete/:id", async (req, res, next) => {
-  const { id } = req.params;
-
-  try {
-    const removedReview = await Review.findByIdAndRemove(id);
-
-    await User.findByIdAndUpdate(removedReview.author, {
-      $pull: { reviews: removedReview._id },
+    await User.findByIdAndUpdate(id, {
+      $push: { reviewsReceived: newReview._id },
     });
 
     res.redirect("/babysitters-list");
@@ -475,6 +423,6 @@ router.post("/review/delete/:id", async (req, res, next) => {
     console.log(error);
     next(error);
   }
-}); */
+});
 
 module.exports = router;

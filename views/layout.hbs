@@ -18,7 +18,7 @@
     <div class="nav-bar-id">
       <img
         class="logo"
-        src="/images/Kiddo'sCare-Logo.png"
+        src="https://res.cloudinary.com/dwgakctdp/image/upload/v1677155208/kiddoscare/Kiddo_sCare-Logo_efwifu.png"
         alt="kiddo's care logo"
       />
       <h3 id="nav-text">Kiddo's Care Babysitting</h3>
@@ -28,7 +28,6 @@
         <li class="nav-item">
           <a class="nav-link" href="/">Homepage</a>
         </li>
-
         {{#if user}}
           <li class="nav-item">
             <a class="nav-link" href="/auth/logout">Logout</a>
@@ -42,20 +41,18 @@
           </li>
         {{/if}}
 
-      {{#unless user.babysitter}}
-        <li class="nav-item">
-          <a class="nav-link" href="/babysitters-list">Search babysitters</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/client">{{user.firstName}} profile</a>
-        </li>
+        {{#unless user.babysitter}}
+          <li class="nav-item">
+            <a class="nav-link" href="/babysitters-list">Search babysitters</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/client">{{user.firstName}} profile</a>
+          </li>
         {{else}}
-        <li class="nav-item">
-          <a class="nav-link" href="/babysitter">My profile</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/babysitter">My profile</a>
+          </li>
         {{/unless}}
-
-        
 
       </ul>
     </div>
