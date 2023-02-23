@@ -18,7 +18,7 @@
   </ul>
   </div>
 
-  <div class="flex-a-profile">
+  <div class="flex-disponibility">
 
     <h3>Disponibility:</h3>
 
@@ -36,7 +36,8 @@
     {{#each user.disponibility.0.night}}
       <p>{{this}}</p>
     {{/each}}
-
+  </div>
+  <div class="flex-disponibility">
     <a
       href="/babysitter-edit/{{user._id}}"
       class="a-profile btn btn-secondary btn-lg"
@@ -45,5 +46,6 @@
       href="/babysitter-edit/{{user._id}}/delete"
       class="a-profile btn btn-secondary btn-lg"
     >Delete profile</a>
+  </div>
   </div>
 </div>
