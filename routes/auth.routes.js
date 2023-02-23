@@ -155,6 +155,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           // Add the user object to the session object
           req.session.currentUser = user.toObject();
           req.app.locals.loggedin = true;
+          req.session.loggedin = true;
 
           //
           req.app.locals.user = user;
