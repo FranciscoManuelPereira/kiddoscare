@@ -81,7 +81,7 @@
 
 /* PROFILE */
 
-.my-profile {
+.sub-title {
   margin: 40px;
 }
 
@@ -122,6 +122,38 @@
 
 .card-body {
   text-align: center;
+}
+
+/* PROFILE-GERAL */
+.img-profile-geral {
+  width: 300px;
+}
+
+.container-profile-geral {
+  margin: 30px 200px;
+  display: flex;
+  align-items: center;
+
+}
+
+.mini-container {
+  font-size: 20px;
+  width: 300px;
+  padding: 15px;
+  margin: 30px 50px;
+  border: 5px solid rgba(128, 128, 128, 0.564);
+  background-color: rgba(128, 128, 128, 0.236);
+  border-radius: 5px;
+}
+
+.form-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-flex {
+  display: flex;
+  margin: 40px 0 0 0;
 }
 
 /* FOOTER */

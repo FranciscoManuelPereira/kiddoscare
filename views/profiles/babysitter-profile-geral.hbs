@@ -1,40 +1,46 @@
 
-<h1>Hi, my name is {{firstName}} {{lastName}}</h1>
-<hr />
-<img src="{{image}}" alt="babysitter-image">
-<p>{{email}}</p>
-<p>{{phoneNumber}}</p>
-<p>Rating: {{rating}}/5</p>
-<p>{{experience}}</p>
-<p>{{location}}</p>
-<p>{{#each disponibility.0.morning}}
-      <p>{{this}}</p>
+<h1 class="sub-title">Hi, my name is {{firstName}} {{lastName}}</h1>
+
+<div class="container-profile-geral">
+  <img class="img-profile-geral" src="{{image}}" alt="babysitter-image">
+  <div class="mini-container">
+    <p>{{email}}</p>
+    <p>{{phoneNumber}}</p>
+    <p>Rating: {{rating}}/5</p>
+    <p>{{experience}}</p>
+    <p>Location: {{location}}</p>
+    <p>{{#each disponibility.0.morning}}
+          <p>{{this}}</p>
+        {{/each}}
+
+        <h4>Afternoon:</h4>
+        {{#each disponibility.0.afternoon}}
+          <p>{{this}}</p>
+        {{/each}}
+
+        <h4>Night:</h4>
+        {{#each disponibility.0.night}}
+          <p>{{this}}</p>
+        {{/each}}</p>
+  </div>
+
+  <div>
+    {{#each reviewsReceived}}
+      <p>by {{author.firstName}}</p>
+      <p> {{content}}</p>
     {{/each}}
+  </div>
 
-    <h4>Afternoon:</h4>
-    {{#each disponibility.0.afternoon}}
-      <p>{{this}}</p>
-    {{/each}}
+  <div>
+    <form class="form-flex" action='/review/create/{{_id}}' method='post'>
+      <textarea name='content' id='content' cols='30' rows='10'>Write a review...</textarea>
+      <div class="label-flex">
+        <label for='rating'>Give a rate</label>
+        <input type='number' name='rating' id='rating' min="0" max="5" />
+        <button type='submit'>Create a review</button>
+      </div>
+    </form>
+  </div>
 
-    <h4>Night:</h4>
-    {{#each disponibility.0.night}}
-      <p>{{this}}</p>
-    {{/each}}</p>
-<hr />
-
-
-<form action='/review/create/{{_id}}' method='post'>
-
-  <textarea name='content' id='content' cols='30' rows='10'></textarea>
-  <label for='rating'>Give a rate</label>
-  <input type='number' name='rating' id='rating' min="0" max="5" />
-  <button type='submit'>Create a review</button>
-</form>
-
-<hr />
-
-{{#each reviewsReceived}}
-  <p>by {{author.firstName}}</p>
-  <p> {{content}}</p>
-{{/each}}
+</div>
 

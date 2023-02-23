@@ -158,7 +158,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           req.session.loggedin = true;
 
           //
-          req.app.locals.user = user;
+          req.app.locals.user = user.toObject();
           delete req.app.locals.user.password;
 
           // Remove the password field
