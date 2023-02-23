@@ -112,8 +112,8 @@ router.post(
         disponibility: {
           morning,
           afternoon,
-          night
-        }
+          night,
+        },
       });
 
       res.redirect("/babysitter");
@@ -207,7 +207,7 @@ router.post(
       const { id } = req.params;
       console.log(req.body);
 
-            const {
+      const {
         firstName,
         lastName,
         email,
@@ -215,18 +215,18 @@ router.post(
         phoneNumber,
         age,
         experience,
-    /*     criminalRecord, */
+        /*     criminalRecord, */
         language,
         linkedin,
         price,
         location,
         morning,
         afternoon,
-        night
+        night,
       } = req.body;
 
       let image;
-      
+
       if (req.file) {
         image = req.file.path;
       }
@@ -242,7 +242,7 @@ router.post(
           image,
           age,
           experience,
-      /*     criminalRecord, */
+          /*     criminalRecord, */
           language,
           linkedin,
           price,
@@ -250,14 +250,14 @@ router.post(
           disponibility: {
             morning,
             afternoon,
-            night
-          }
+            night,
+          },
         },
         { new: true }
       );
 
       req.session.currentUser = updatedUserBabysitter;
-      console.log(updatedUserBabysitter); 
+      console.log(updatedUserBabysitter);
 
       res.redirect("/babysitter");
     } catch (error) {
@@ -339,28 +339,31 @@ router.get("/babysitters-list", isLoggedIn, async (req, res, next) => {
 });
 
 // GET babysitter-profile-geral
-router.get("/babysitter-profile-geral/:id", isLoggedIn, async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const user = req.session.currentUser;
+router.get(
+  "/babysitter-profile-geral/:id",
+  isLoggedIn,
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const user = req.session.currentUser;
 
-    const babysitter = await User.findById(id).populate('reviewsReceived')
-    .populate({
-      path: 'reviewsReceived',
-      populate: {
-        path: 'author',
-        model: 'User',
-      }
-    });
+      const babysitter = await User.findById(id)
+        .populate("reviewsReceived")
+        .populate({
+          path: "reviewsReceived",
+          populate: {
+            path: "author",
+            model: "User",
+          },
+        });
 
-    res.render("profiles/babysitter-profile-geral", babysitter, user);
-  } catch (error) {
-    console.log(error);
-    next(error);
+      res.render("profiles/babysitter-profile-geral", babysitter);
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
   }
-});
-
-
+);
 
 // POST /delete babysitter profile
 router.post("/babysitter-edit/:id/delete", async (req, res, next) => {
@@ -375,7 +378,6 @@ router.post("/babysitter-edit/:id/delete", async (req, res, next) => {
     next(error);
   }
 });
-
 
 router.get("/profile", isLoggedIn, async (req, res, next) => {
   try {
@@ -408,9 +410,13 @@ router.post("/review/create/:id", async (req, res, next) => {
     });
 
     // add review to user
-    await User.findByIdAndUpdate(author, { $push: { reviewsWritten: newReview._id } });
+    await User.findByIdAndUpdate(author, {
+      $push: { reviewsWritten: newReview._id },
+    });
 
-    await User.findByIdAndUpdate(id, { $push: { reviewsReceived: newReview._id } });
+    await User.findByIdAndUpdate(id, {
+      $push: { reviewsReceived: newReview._id },
+    });
 
     res.redirect("/babysitters-list");
   } catch (error) {
@@ -418,7 +424,5 @@ router.post("/review/create/:id", async (req, res, next) => {
     next(error);
   }
 });
-
-
 
 module.exports = router;
