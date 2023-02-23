@@ -86,11 +86,11 @@ router.post(
         price,
         language,
         location,
-        disponibility: {
+        /* disponibility: {
           morning,
           afternoon,
           night
-        }
+        } */
       } = req.body;
 
       let image;
@@ -115,11 +115,11 @@ router.post(
         price,
         language,
         location,
-        disponibility: {
+        /* disponibility: {
           morning,
           afternoon,
           night
-        }
+        } */
       });
 
       res.redirect("/babysitter");
