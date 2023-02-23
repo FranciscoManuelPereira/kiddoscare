@@ -179,6 +179,7 @@ router.get("/logout", isLoggedIn, (req, res) => {
       return;
     }
     req.app.locals.loggedin = false;
+    req.app.locals.user = null;
     res.redirect("/");
   });
 });
