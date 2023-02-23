@@ -80,17 +80,13 @@ router.post(
         phoneNumber,
         age,
         experience,
-        /*  criminalRecord, */
-        /*  disponibility, */
         linkedin,
         price,
         language,
         location,
-        /* disponibility: {
-          morning,
-          afternoon,
-          night
-        } */
+        morning,
+        afternoon,
+        night,
       } = req.body;
 
       let image;
@@ -109,17 +105,15 @@ router.post(
         age,
         image,
         experience,
-        /* criminalRecord, */
-        /*  disponibility, */
         linkedin,
         price,
         language,
         location,
-        /* disponibility: {
+        disponibility: {
           morning,
           afternoon,
           night
-        } */
+        }
       });
 
       res.redirect("/babysitter");
@@ -382,30 +376,6 @@ router.post("/babysitter-edit/:id/delete", async (req, res, next) => {
   }
 });
 
-//Get Details of Babysitter Profile
-/* router.get("/babysitter-profile-geral/:id", async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const babysitterPublicProfile = await User.findById(id)
-      .populate("reviews author")
-      .populate({
-        path: "reviews",
-        populate: {
-          path: "author",
-          model: "User",
-        },
-      });
-
-    const users = await User.find();
-    res.render("profile/babysitter-profile-geral", { users });
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-}); */
-
-
-
 
 router.get("/profile", isLoggedIn, async (req, res, next) => {
   try {
@@ -421,26 +391,6 @@ router.get("/profile", isLoggedIn, async (req, res, next) => {
     next(error);
   }
 });
-
-
-/* router.post("/deleteFavorite/:id", async (req, res, next) => {
-  const babysitterId = req.params.id;
-  const userId = req.session.currentUser._id;
-
-  try {
-    const babysitterRemove = await User.findById(userId);
-    await User.findByIdAndUpdate(userId, {
-      $pull: { favorites: babysitterId },
-    });
-    await User.findByIdAndRemove(babysitterId);
-
-    res.redirect("/profile");
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-}); */
-
 
 // POST / review
 router.post("/review/create/:id", async (req, res, next) => {
@@ -470,22 +420,5 @@ router.post("/review/create/:id", async (req, res, next) => {
 });
 
 
-/* // POST / delete review
-router.post("/review/delete/:id", async (req, res, next) => {
-  const { id } = req.params;
-
-  try {
-    const removedReview = await Review.findByIdAndRemove(id);
-
-    await User.findByIdAndUpdate(removedReview.author, {
-      $pull: { reviews: removedReview._id },
-    });
-
-    res.redirect("/babysitters-list");
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-}); */
 
 module.exports = router;
